@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vince Dang Capital — 15+ Ventures Across 6 Industries, Built &amp; Scaling</title>
+  <meta name="description" content="15+ live ventures across real estate, fintech, health tech, construction, food &amp; education. $35M+ entitled pipeline. Every venture built before capital was requested. Now scaling with strategic partners.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0a0c10; --bg2:#0f1218; --bg3:#151b27; --card:#12161e;
+      --surface:rgba(255,255,255,0.025); --glass:rgba(255,255,255,0.04);
+      --border:rgba(255,255,255,0.06); --border2:rgba(255,255,255,0.1);
+      --text:#f0f1f4; --muted:#8b93a7; --dim:#555e73;
+      --gold:#c9a84c; --gold2:#e2c36b; --gold-bg:rgba(201,168,76,0.08);
+      --blue:#4a8eff; --blue-bg:rgba(74,142,255,0.08);
+      --green:#3ecf8e; --green-bg:rgba(62,207,142,0.06);
+      --red:#ef4444; --red-bg:rgba(239,68,68,0.06);
+      --purple:#a78bfa; --purple-bg:rgba(167,139,250,0.06);
+      --serif:'Playfair Display',Georgia,serif;
+      --sans:'Inter',-apple-system,sans-serif;
+      --mono:'JetBrains Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+    .w{max-width:1180px;margin:0 auto;padding:0 24px}
+    a{color:var(--gold2);text-decoration:none;transition:.2s}
+    a:hover{color:#fff}
+    ::selection{background:var(--gold);color:#000}
+    img{max-width:100%;display:block}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,12,16,0.97);border-bottom:1px solid var(--border)}
+    .nav-in{display:flex;justify-content:space-between;align-items:center;height:64px}
+    .logo{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:0.01em}
+    .logo em{font-style:normal;color:var(--gold)}
+    .nav-r{display:flex;align-items:center;gap:24px}
+    .nav-r a{color:var(--muted);font-size:.75rem;font-weight:500;letter-spacing:.02em}
+    .nav-r a:hover{color:var(--text)}
+    .nav-cta{background:var(--gold)!important;color:#000!important;padding:8px 20px;border-radius:5px;font-weight:700!important;font-size:.75rem!important}
+    .nav-cta:hover{background:var(--gold2)!important;color:#000!important}
+    @media(max-width:768px){.nav-r a:not(.nav-cta){display:none}}
+
+    /* HERO */
+    .hero{
+      position:relative;min-height:100vh;display:flex;align-items:center;
+      background:#0a0c10;
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=50') center/cover no-repeat;
+      opacity:0.35;will-change:auto;
+    }
+    .hero::after{
+      content:'';position:absolute;inset:0;z-index:0;
+      background:linear-gradient(180deg,rgba(10,12,16,0.2) 0%,rgba(10,12,16,0.6) 50%,#0a0c10 100%);
+    }
+    .hero-inner{position:relative;z-index:2;padding:140px 0 80px;max-width:720px}
+    .hero-over{font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+    .hero-over::before{content:'';width:28px;height:1px;background:var(--gold)}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.25rem,5.5vw,3.75rem);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:22px}
+    .hero h1 .accent{color:var(--gold2)}
+    .hero-p{font-size:1rem;color:var(--muted);line-height:1.85;margin-bottom:36px}
+    .hero-p strong{color:var(--text)}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:.875rem;padding:13px 28px;border-radius:5px;border:none;cursor:pointer;transition:.25s}
+    .btn-gold{background:var(--gold);color:#000}
+    .btn-gold:hover{background:var(--gold2);color:#000;transform:translateY(-1px)}
+    .btn-line{background:transparent;color:var(--text);border:1px solid var(--border2)}
+    .btn-line:hover{border-color:var(--muted);background:var(--glass)}
+    .btn-sm{font-size:.75rem;padding:9px 18px}
+    .btn-full{width:100%;justify-content:center}
+
+    /* HERO STATS */
+    .hero-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden}
+    @media(max-width:700px){.hero-stats{grid-template-columns:repeat(3,1fr)} .hero-stats .hs:nth-child(4),.hero-stats .hs:nth-child(5){grid-column:span 1}}
+    @media(max-width:480px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+    .hs{background:rgba(15,18,24,0.97);padding:20px 16px;text-align:center}
+    .hs-v{font-family:var(--mono);font-size:1.35rem;font-weight:700;color:var(--gold2);display:block;line-height:1.2}
+    .hs-l{font-size:.5625rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:4px}
+
+    /* SECTIONS */
+    .sec{padding:90px 0;position:relative}
+    .sec-tag{font-size:.5625rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+    .sec-tag::before{content:'';width:20px;height:1px;background:var(--gold)}
+    .sec h2{font-family:var(--serif);font-size:clamp(1.6rem,3.8vw,2.5rem);font-weight:700;line-height:1.18;margin-bottom:14px;letter-spacing:-.01em}
+    .sec-p{color:var(--muted);font-size:.9rem;line-height:1.8;max-width:560px;margin-bottom:44px}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+
+    /* PROOF-OF-WORK PORTFOLIO GRID */
+    .portfolio-bg{
+      background:var(--bg2);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    }
+    .port-header{text-align:center;margin-bottom:48px}
+    .port-header .sec-tag{justify-content:center}
+    .port-header .sec-tag::before{display:none}
+    .port-header h2{margin-bottom:10px}
+    .port-header p{color:var(--muted);font-size:.875rem;max-width:600px;margin:0 auto}
+    .sector{margin-bottom:40px}
+    .sector:last-child{margin-bottom:0}
+    .sector-label{font-size:.5625rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .sector-label::before{content:'';width:14px;height:1px}
+    .sl-re{color:#c9a84c} .sl-re::before{background:#c9a84c}
+    .sl-ct{color:#f59e0b} .sl-ct::before{background:#f59e0b}
+    .sl-ft{color:#4a8eff} .sl-ft::before{background:#4a8eff}
+    .sl-ht{color:#3ecf8e} .sl-ht::before{background:#3ecf8e}
+    .sl-fb{color:#fb923c} .sl-fb::before{background:#fb923c}
+    .sl-ed{color:#a78bfa} .sl-ed::before{background:#a78bfa}
+    .port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+    .pcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;transition:.3s;display:flex;flex-direction:column;gap:6px}
+    .pcard:hover{border-color:var(--border2);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+    .pcard-name{font-size:.8125rem;font-weight:700;display:flex;align-items:center;gap:6px}
+    .pcard-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .dot-live{background:var(--green)} .dot-dev{background:var(--gold)} .dot-pre{background:var(--blue)}
+    .pcard-desc{font-size:.6875rem;color:var(--muted);line-height:1.55}
+    .pcard-link{font-size:.625rem;color:var(--gold);font-weight:600;letter-spacing:.03em;margin-top:auto;padding-top:4px}
+    .pcard-link:hover{color:#fff}
+    .port-legend{display:flex;gap:20px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+    .port-legend span{font-size:.625rem;color:var(--dim);display:flex;align-items:center;gap:5px}
+    .port-legend span::before{content:'';width:6px;height:6px;border-radius:50%}
+    .legend-live::before{background:var(--green)}
+    .legend-dev::before{background:var(--gold)}
+    .legend-pre::before{background:var(--blue)}
+
+    /* THESIS */
+    .thesis{
+      background:linear-gradient(135deg,#0d1017 0%,#151b27 100%);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    }
+    .thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden}
+    @media(max-width:768px){.thesis-grid{grid-template-columns:1fr}}
+    .th-card{background:var(--bg2);padding:32px;transition:background .3s}
+    .th-card:hover{background:var(--bg3)}
+    .th-icon{font-size:1.5rem;margin-bottom:14px;display:block}
+    .th-card h3{font-size:.9375rem;font-weight:700;margin-bottom:8px}
+    .th-card p{font-size:.78125rem;color:var(--muted);line-height:1.7}
+
+    /* DEAL CARDS */
+    .deals-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media(max-width:800px){.deals-grid{grid-template-columns:1fr}}
+    .deal{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:.3s}
+    .deal:hover{border-color:var(--border2);box-shadow:0 10px 32px rgba(0,0,0,0.3)}
+    .deal.full{grid-column:1/-1}
+    .deal-img{height:200px;position:relative;overflow:hidden}
+    .deal.full .deal-img{height:280px}
+    .deal-img img{width:100%;height:100%;object-fit:cover}
+    .deal-img .deal-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,16,0.95) 0%,rgba(10,12,16,0.15) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+    .deal-badge{display:inline-block;font-size:.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:3px;margin-bottom:6px;width:fit-content}
+    .db-gold{background:var(--gold-bg);color:var(--gold);border:1px solid rgba(201,168,76,0.2)}
+    .db-blue{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(74,142,255,0.2)}
+    .db-green{background:var(--green-bg);color:var(--green);border:1px solid rgba(62,207,142,0.15)}
+    .db-purple{background:var(--purple-bg);color:var(--purple);border:1px solid rgba(167,139,250,0.15)}
+    .deal-overlay h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;line-height:1.25}
+    .deal.full .deal-overlay h3{font-size:1.35rem}
+    .deal-overlay .deal-type{font-size:.6875rem;color:var(--muted);margin-top:3px}
+    .deal-body{padding:20px 22px}
+    .deal-desc{font-size:.78125rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+    .deal-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+    @media(max-width:600px){.deal-stats{grid-template-columns:repeat(2,1fr)}}
+    .ds{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:8px;text-align:center}
+    .ds-v{font-family:var(--mono);font-size:.8125rem;font-weight:700;display:block}
+    .ds-l{font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+    .deal-impact{font-size:.6875rem;color:var(--green);background:var(--green-bg);border:1px solid rgba(62,207,142,0.12);border-radius:5px;padding:8px 12px;margin-bottom:14px;line-height:1.5}
+    .deal-links{display:flex;gap:8px;flex-wrap:wrap}
+
+    /* PROCESS */
+    .process-bg{
+      background:linear-gradient(180deg,#0d1017 0%,#131a25 100%);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    }
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+    @media(max-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:500px){.steps{grid-template-columns:1fr}}
+    .step-n{font-family:var(--serif);font-size:2.75rem;font-weight:700;color:rgba(201,168,76,0.12);line-height:1;margin-bottom:10px}
+    .step h3{font-size:.875rem;font-weight:700;margin-bottom:6px}
+    .step p{font-size:.78125rem;color:var(--muted);line-height:1.65}
+
+    /* OPERATOR */
+    .op-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    @media(max-width:800px){.op-row{grid-template-columns:1fr;gap:36px}}
+    .op-bio p{font-size:.875rem;color:var(--muted);line-height:1.85;margin-bottom:14px}
+    .op-bio strong{color:var(--text)}
+    .op-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+    .os{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:14px;text-align:center}
+    .os-n{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold2)}
+    .os-l{font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-top:2px}
+
+    /* TIMELINE */
+    .timeline{margin-top:32px}
+    .tl-item{display:flex;gap:16px;padding-bottom:20px;position:relative}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-line{width:2px;background:var(--border);position:absolute;top:10px;left:5px;bottom:0}
+    .tl-item:last-child .tl-line{display:none}
+    .tl-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--gold);background:var(--bg);flex-shrink:0;margin-top:3px;position:relative;z-index:1}
+    .tl-content h4{font-size:.78125rem;font-weight:700;margin-bottom:2px}
+    .tl-content p{font-size:.6875rem;color:var(--muted);line-height:1.55}
+    .tl-content .tl-year{font-family:var(--mono);font-size:.5625rem;color:var(--gold);font-weight:700}
+
+    /* NETWORK */
+    .net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:768px){.net-grid{grid-template-columns:1fr}}
+    .net-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:.3s}
+    .net-card:hover{border-color:var(--border2)}
+    .net-card h3{font-size:.875rem;font-weight:700;margin-bottom:6px}
+    .net-card p{font-size:.75rem;color:var(--muted);line-height:1.6}
+    .net-card .net-tag{font-size:.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
+
+    /* CRED GRID */
+    .cred-grid{display:grid;grid-template-columns:1fr;gap:0}
+    .cred-item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+    .cred-item:last-child{border-bottom:none}
+    .cred-label{font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);min-width:90px;padding-top:1px}
+    .cred-text{font-size:.75rem;color:var(--muted);line-height:1.55}
+
+    /* FORM */
+    .form-sec{
+      background:linear-gradient(180deg,#0d1017 0%,#131a25 100%);
+      border-top:1px solid var(--border);
+    }
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    @media(max-width:800px){.form-row{grid-template-columns:1fr;gap:36px}}
+    .form-info h2{font-family:var(--serif);font-size:clamp(1.6rem,3.8vw,2.25rem);font-weight:700;margin-bottom:14px}
+    .form-info p{font-size:.875rem;color:var(--muted);line-height:1.8;margin-bottom:20px}
+    .form-info ul{list-style:none}
+    .form-info li{padding:8px 0;font-size:.8125rem;color:var(--muted);display:flex;align-items:center;gap:10px;border-top:1px solid var(--border)}
+    .form-info li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .form-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:32px}
+    .fg{margin-bottom:16px}
+    .fg label{display:block;font-size:.625rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+    .fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:5px;font-family:var(--sans);font-size:.875rem;color:var(--text);background:var(--bg2);outline:none;transition:.2s}
+    .fg textarea{resize:vertical;min-height:70px}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
+    .fg input::placeholder,.fg textarea::placeholder{color:var(--dim)}
+    .form-note{font-size:.625rem;color:var(--dim);text-align:center;margin-top:10px}
+    .disclaimer{font-size:.5625rem;color:var(--dim);line-height:1.6;max-width:680px;margin:36px auto 0;text-align:center}
+
+    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center}
+    footer p{font-size:.625rem;color:var(--dim);line-height:1.6}
+    footer a{color:var(--dim)}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="w nav-in">
+      <a href="#" class="logo">Vince Dang <em>Capital</em></a>
+      <div class="nav-r">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#thesis">Thesis</a>
+        <a href="#deals">Deals</a>
+        <a href="#operator">Operator</a>
+        <a href="#network">Network</a>
+        <a href="#access" class="nav-cta">Invest</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="w hero-inner">
+      <div class="hero-over">Accepting Strategic Investors &amp; Partners</div>
+      <h1>15+ ventures built.<br>6 industries deep.<br><span class="accent">Now scaling with conviction.</span></h1>
+      <p class="hero-p">This isn't a pitch deck — it's a live portfolio. <strong>15+ functioning ventures across real estate, fintech, health tech, construction, food, and education</strong> — every one built from scratch and operational. A <strong>$35M entitled luxury development</strong>. Digital payment integration through NowPayments, Circle, and BitPay. Consumer food brands with 30 years of heritage. All shipped. All live. All clicking. <strong>The foundation is laid. The right capital partners take it to scale.</strong></p>
+      <div class="hero-btns">
+        <a href="#access" class="btn btn-gold">Request Deal Access</a>
+        <a href="#portfolio" class="btn btn-line">Explore the Opportunities</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><span class="hs-v">15+</span><span class="hs-l">Live Ventures</span></div>
+        <div class="hs"><span class="hs-v">6</span><span class="hs-l">Industries</span></div>
+        <div class="hs"><span class="hs-v">$35M+</span><span class="hs-l">Entitled Pipeline</span></div>
+        <div class="hs"><span class="hs-v">17yr</span><span class="hs-l">Operations</span></div>
+        <div class="hs"><span class="hs-v">$3.5M+</span><span class="hs-l">Built &amp; Managed</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROOF OF WORK — FULL PORTFOLIO -->
+  <section class="sec portfolio-bg" id="portfolio">
+    <div class="w">
+      <div class="port-header">
+        <div class="sec-tag">Proof of Work</div>
+        <h2>Every venture is live. Every link works. Click any of them.</h2>
+        <p>Not ideas on a whiteboard. These are live products, real sites, and real businesses — each one built from the ground up with AI-assisted development and relentless execution.</p>
+      </div>
+
+      <!-- Real Estate & Development -->
+      <div class="sector">
+        <div class="sector-label sl-re">Real Estate &amp; Development</div>
+        <div class="port-grid">
+          <a href="https://invinciblelude.github.io/vista-lake-estates/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Vista Lake Estates</div>
+            <div class="pcard-desc">15 entitled luxury lots, Granite Bay. 35.84 acres, Folsom Lake. $35-45M sell-out. Full investor data room.</div>
+            <span class="pcard-link">vistalakeestates &rarr;</span>
+          </a>
+          <a href="https://bianchi-tillettdevelopers.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Bianchi-Tillett Developers</div>
+            <div class="pcard-desc">Full-service design-build firm. Luxury custom homes &amp; infill. Top 5% CA contractors (BuildZoom 108).</div>
+            <span class="pcard-link">bianchi-tillettdevelopers.com &rarr;</span>
+          </a>
+          <a href="https://www.bianchi-tillett.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Bianchi Group</div>
+            <div class="pcard-desc">Private investment portfolio. Authorized access for qualified partners and investors.</div>
+            <span class="pcard-link">bianchi-tillett.com &rarr;</span>
+          </a>
+          <a href="https://invinciblelude.github.io/Bianchi-Unlimited-Market-/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Bianchi Unlimited Market</div>
+            <div class="pcard-desc">$1B syndicate vision &amp; marketing strategy. Scale-up roadmap for luxury construction development.</div>
+            <span class="pcard-link">bianchi-unlimited-market &rarr;</span>
+          </a>
+          <a href="https://invinciblelude.github.io/developement-outlook-BInachi/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Development Outlook</div>
+            <div class="pcard-desc">Full operator portfolio — credentials, active businesses, proof of work, AI Paul proposal, 90-day plays.</div>
+            <span class="pcard-link">development-outlook &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Construction & Trades -->
+      <div class="sector">
+        <div class="sector-label sl-ct">Construction &amp; Trades</div>
+        <div class="port-grid">
+          <a href="https://homeriserfix.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>HomeRiserFix</div>
+            <div class="pcard-desc">Full-service GC in Northern California. Community-focused with youth training programs.</div>
+            <span class="pcard-link">homeriserfix.com &rarr;</span>
+          </a>
+          <a href="https://thenetwork20.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>TheNetwork20</div>
+            <div class="pcard-desc">Talent marketplace connecting trade workers to GCs &amp; developers. Digital employment cards + QR codes.</div>
+            <span class="pcard-link">thenetwork20.com &rarr;</span>
+          </a>
+          <a href="https://silvercrowdcraft.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>SilverCrowdCraft</div>
+            <div class="pcard-desc">Construction PM platform. Live dashboards, build tracking, timeline monitoring, crowdfunding.</div>
+            <span class="pcard-link">silvercrowdcraft.com &rarr;</span>
+          </a>
+          <a class="pcard" style="cursor:default">
+            <div class="pcard-name"><span class="pcard-dot dot-dev"></span>Comet AI</div>
+            <div class="pcard-desc">AI-powered bid automation &amp; SKU parsing. Cuts manual review from hours to minutes. 30-50% faster processing.</div>
+            <span class="pcard-link" style="color:var(--dim)">In development</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Fintech & Crypto -->
+      <div class="sector">
+        <div class="sector-label sl-ft">Fintech &amp; Crypto</div>
+        <div class="port-grid">
+          <a href="https://cashnowzap.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>ZAP (CashNowZap)</div>
+            <div class="pcard-desc">Digital payment setup service. Helps businesses accept USDC/crypto via NowPayments, Circle, BitPay. Cuts card fees by 60%.</div>
+            <span class="pcard-link">cashnowzap.com &rarr;</span>
+          </a>
+          <a href="https://cryptonowzap.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>CryptoNowZap</div>
+            <div class="pcard-desc">Crypto wallet coaching. $99-$249 packages. 1-on-1 setup, payments walkthrough, DEX training.</div>
+            <span class="pcard-link">cryptonowzap.com &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Health & Wellness -->
+      <div class="sector">
+        <div class="sector-label sl-ht">Health &amp; Wellness</div>
+        <div class="port-grid">
+          <a href="https://peptideeats.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>PeptideEats</div>
+            <div class="pcard-desc">Food-first health prevention. $10 Peptide Score. 10 meal protocols. Targets $50B+ GLP-1 market gap.</div>
+            <span class="pcard-link">peptideeats.com &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Food & Beverage -->
+      <div class="sector">
+        <div class="sector-label sl-fb">Food &amp; Beverage</div>
+        <div class="port-grid">
+          <a href="https://dieseldelights.com/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Diesel Delights</div>
+            <div class="pcard-desc">Vietnamese soul food. 7 signature plates, 5 proprietary sauces. 15+ years of firefighter kitchen heritage.</div>
+            <span class="pcard-link">dieseldelights.com &rarr;</span>
+          </a>
+          <a href="https://invinciblelude.github.io/thaibankokgarden/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>Bangkok Garden Sauces</div>
+            <div class="pcard-desc">30-year Thai restaurant bottled sauce line. 10 sauces at $8.99. CPG retail &amp; DTC launch 2026.</div>
+            <span class="pcard-link">bangkokgardensauces &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Education & B2B -->
+      <div class="sector">
+        <div class="sector-label sl-ed">Education &amp; B2B Tech</div>
+        <div class="port-grid">
+          <a href="https://invinciblelude.github.io/icodesacramento" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>iCode Sacramento</div>
+            <div class="pcard-desc">STEM education franchise. Seeking $100K to open Sacramento's first campus. 300K+ underserved students.</div>
+            <span class="pcard-link">icodesacramento &rarr;</span>
+          </a>
+          <a href="https://invinciblelude.github.io/CRMDataIntel/" target="_blank" class="pcard">
+            <div class="pcard-name"><span class="pcard-dot dot-live"></span>CRM Data Intelligence</div>
+            <div class="pcard-desc">B2B data cleaning service. Free audit tool live. $3,500 pilot. 7+ industries. 8-68x client ROI.</div>
+            <span class="pcard-link">crmdataintel &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="port-legend">
+        <span class="legend-live">Live &amp; Operating</span>
+        <span class="legend-dev">In Development</span>
+        <span class="legend-pre">Pre-Launch</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- THESIS -->
+  <section class="sec thesis" id="thesis">
+    <div class="w">
+      <div class="sec-tag">Investment Thesis</div>
+      <h2>You're not funding an idea. You're funding ventures that are already running.</h2>
+      <p class="sec-p">Every venture below was built before capital was ever requested. Products live. Entitlements secured. Operations active. 17 years of zero-fail execution behind the wheel. What's missing is the fuel to take proven businesses to their full potential.</p>
+      <div class="thesis-grid">
+        <div class="th-card">
+          <span class="th-icon">&#9670;</span>
+          <h3>Execution Over Everything</h3>
+          <p>15+ live ventures across 6 industries in 18 months — AI-assisted and operational. That's not a startup pitch. That's a proven execution engine with momentum. Each venture addresses a real market, has a live product, and is ready for the capital that takes it from built to scaled.</p>
+        </div>
+        <div class="th-card">
+          <span class="th-icon">&#9733;</span>
+          <h3>Everything Is Already Built</h3>
+          <p>Vista Lake's entitlements run through 2028, CEQA cleared. ZAP has a live restaurant pilot. CRM Data Intelligence has a working audit tool. PeptideEats is selling $10 scores. Bangkok Garden has 30 years of recipes bottled. You're not funding R&D — you're funding scale.</p>
+        </div>
+        <div class="th-card">
+          <span class="th-icon">&#9883;</span>
+          <h3>Diversified by Design</h3>
+          <p>Real estate. Fintech. Health tech. Construction. Food &amp; beverage. Education. Six industries means six shots on goal. When real estate slows, SaaS and digital products accelerate. When crypto dips, construction booms. The portfolio is the hedge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ACTIVE DEALS -->
+  <section class="sec" id="deals">
+    <div class="w">
+      <div class="sec-tag">Current Investment Opportunities</div>
+      <h2>Open positions across the portfolio</h2>
+      <p class="sec-p">Every deal below is structured, de-risked, and ready for capital. Detailed memos and data rooms available upon qualification.</p>
+
+      <div class="deals-grid">
+
+        <!-- FLAGSHIP: Vista Lake -->
+        <div class="deal full">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=60" alt="Luxury estate lots Granite Bay" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-gold">Flagship &bull; Real Estate Development</div>
+              <h3>Vista Lake Estates — 15 Entitled Luxury Lots</h3>
+              <div class="deal-type">Granite Bay, CA &bull; 35.84 Acres &bull; Folsom Lake &bull; Los Lagos Equestrian</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Fully entitled luxury development wrapping a 10-acre habitat preserve with trail access to Folsom Lake SRA. 15 custom lots on 1.15–2.4 acres each. CEQA cleared (MND adopted), vesting tentative map active through July 2028. Granite Bay is 95% built out — last large-lot, lake-adjacent parcel available. Adjacent Los Lagos sells at $2M–$4M+. Two strategies: lot sales at 18-22% IRR ($3.4M equity) or vertical build at 22-35% IRR ($15M equity). Development partnership with Bianchi-Tillett (Top 5% CA contractors, BuildZoom 108). Sotheby's, Engel &amp; Völkers distribution network in place.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">$35–45M</span><span class="ds-l">Sell-Out</span></div>
+              <div class="ds"><span class="ds-v">18–35%</span><span class="ds-l">Target IRR</span></div>
+              <div class="ds"><span class="ds-v">$3.4–15M</span><span class="ds-l">Equity Ask</span></div>
+              <div class="ds"><span class="ds-v">2028</span><span class="ds-l">Entitled</span></div>
+            </div>
+            <div class="deal-impact">Preserves 10 acres of oak woodland permanently. 50+ construction jobs. Adds legacy housing stock to supply-constrained Granite Bay luxury market.</div>
+            <div class="deal-links">
+              <a href="https://invinciblelude.github.io/vista-lake-estates/" target="_blank" class="btn btn-gold btn-sm">Full Data Room</a>
+              <a href="#access" class="btn btn-line btn-sm">Request Memo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ZAP Payments -->
+        <div class="deal">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=60" alt="Blockchain fintech" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-blue">Fintech &bull; Digital Payments</div>
+              <h3>ZAP — Digital Payment Setup &amp; Integration</h3>
+              <div class="deal-type">NowPayments &bull; Circle &bull; BitPay &bull; Live Pilot</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Helps businesses set up digital payment acceptance through NowPayments, Circle, BitPay, and other platforms — replacing 2.35% credit card fees with 1.0% or less. Handles integration, staff training, and merchant onboarding. Live restaurant pilot in Davis, CA. GENIUS Act signed into federal law July 2025. 70M Americans already hold crypto wallets.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">$24.7B</span><span class="ds-l">Market</span></div>
+              <div class="ds"><span class="ds-v">60%</span><span class="ds-l">Fee Savings</span></div>
+              <div class="ds"><span class="ds-v">Live</span><span class="ds-l">Pilot</span></div>
+              <div class="ds"><span class="ds-v">4</span><span class="ds-l">Verticals</span></div>
+            </div>
+            <div class="deal-impact">Saves small restaurants $7,000+/year in card fees. Keeps local businesses profitable against payment processing giants.</div>
+            <div class="deal-links">
+              <a href="https://cashnowzap.com/" target="_blank" class="btn btn-gold btn-sm">Full Pitch</a>
+              <a href="https://cryptonowzap.com/" target="_blank" class="btn btn-line btn-sm">Crypto Coaching</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iCode Sacramento -->
+        <div class="deal">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=60" alt="Kids learning to code" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-purple">Education &bull; STEM Franchise</div>
+              <h3>iCode Sacramento</h3>
+              <div class="deal-type">#1 Fastest-Growing Ed Company &bull; First CA Capital Location</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Opening Sacramento's first iCode campus — the #1 fastest-growing education company (Financial Times). 300K+ K-12 students, zero existing locations. 9-belt curriculum from Scratch to Java. 8 revenue streams. $362K avg campus revenue. Tech-native operator who can teach the advanced classes.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">$100K</span><span class="ds-l">Raise</span></div>
+              <div class="ds"><span class="ds-v">$362K</span><span class="ds-l">Avg Revenue</span></div>
+              <div class="ds"><span class="ds-v">300K+</span><span class="ds-l">Students</span></div>
+              <div class="ds"><span class="ds-v">8</span><span class="ds-l">Rev Streams</span></div>
+            </div>
+            <div class="deal-impact">Gives Sacramento kids access to world-class STEM education. Coding, robotics, AI, 3D printing — career preparation, not daycare with tablets.</div>
+            <div class="deal-links">
+              <a href="https://invinciblelude.github.io/icodesacramento" target="_blank" class="btn btn-gold btn-sm">Full Pitch</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRM Data Intelligence -->
+        <div class="deal">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=60" alt="Data analytics" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-blue">B2B SaaS &bull; Data</div>
+              <h3>CRM Data Intelligence</h3>
+              <div class="deal-type">Data Cleaning &bull; 7+ Industries &bull; Live Audit Tool</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Done-for-you CRM data cleaning for dental, HVAC, staffing, construction, and trades. Free browser-based audit tool already live. $3,500 per pilot, $750/month recurring. 76% of companies have inaccurate CRM data — we find the revenue hiding in it.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">$3,500</span><span class="ds-l">Per Pilot</span></div>
+              <div class="ds"><span class="ds-v">8–68x</span><span class="ds-l">Client ROI</span></div>
+              <div class="ds"><span class="ds-v">$750/mo</span><span class="ds-l">Recurring</span></div>
+              <div class="ds"><span class="ds-v">Live</span><span class="ds-l">Product</span></div>
+            </div>
+            <div class="deal-impact">Recovers $30K–$50K+ in lost revenue from existing customer databases for local small businesses.</div>
+            <div class="deal-links">
+              <a href="https://invinciblelude.github.io/CRMDataIntel/" target="_blank" class="btn btn-gold btn-sm">Live Product</a>
+              <a href="https://invinciblelude.github.io/CRMDataIntel/pages/audit-tool.html" target="_blank" class="btn btn-line btn-sm">Try Audit Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PeptideEats -->
+        <div class="deal">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=60" alt="Healthy food" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-green">Health Tech &bull; Prevention</div>
+              <h3>PeptideEats</h3>
+              <div class="deal-type">$50B GLP-1 Market Gap &bull; 10 Protocols &bull; $10 Entry</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Food-first health prevention targeting the $50B+ GLP-1 market gap. 80% of GLP-1 users regain weight after stopping — PeptideEats fills that gap with meal protocols. $10 Peptide Score assessment. Health Wheel system covering 6 pillars. Subscription path for ongoing guidance.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">$50B+</span><span class="ds-l">Market</span></div>
+              <div class="ds"><span class="ds-v">$10</span><span class="ds-l">Entry Price</span></div>
+              <div class="ds"><span class="ds-v">10</span><span class="ds-l">Protocols</span></div>
+              <div class="ds"><span class="ds-v">1,200+</span><span class="ds-l">Scores Done</span></div>
+            </div>
+            <div class="deal-impact">A $10 alternative to $300/month injections. Food-based prevention addressing 11M annual diet-related deaths worldwide.</div>
+            <div class="deal-links">
+              <a href="https://peptideeats.com/" target="_blank" class="btn btn-gold btn-sm">Live Product</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Construction Ecosystem -->
+        <div class="deal">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=60" alt="Construction crew" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-gold">Construction &bull; 3-Platform Ecosystem</div>
+              <h3>Construction Tech Ecosystem</h3>
+              <div class="deal-type">HomeRiserFix + TheNetwork20 + SilverCrowdCraft + Comet AI</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Vertically integrated construction stack: active GC operation (HomeRiserFix), talent marketplace connecting workers to jobs (TheNetwork20), project management &amp; crowdfunding platform (SilverCrowdCraft), and AI bid automation (Comet AI). Four products solving the labor shortage from four angles.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">4</span><span class="ds-l">Products</span></div>
+              <div class="ds"><span class="ds-v">Active</span><span class="ds-l">GC Ops</span></div>
+              <div class="ds"><span class="ds-v">Live</span><span class="ds-l">Platforms</span></div>
+              <div class="ds"><span class="ds-v">NorCal</span><span class="ds-l">Market</span></div>
+            </div>
+            <div class="deal-impact">Connects local trades workers to steady jobs. Youth training programs. Actively hiring at $20-25/hr in Sacramento.</div>
+            <div class="deal-links">
+              <a href="https://homeriserfix.com/" target="_blank" class="btn btn-gold btn-sm">HomeRiserFix</a>
+              <a href="https://thenetwork20.com/" target="_blank" class="btn btn-line btn-sm">TheNetwork20</a>
+              <a href="https://silvercrowdcraft.com/" target="_blank" class="btn btn-line btn-sm">SilverCrowdCraft</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food & Beverage -->
+        <div class="deal">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=60" alt="Restaurant kitchen" loading="lazy">
+            <div class="deal-overlay">
+              <div class="deal-badge db-gold">Food &amp; Beverage &bull; CPG</div>
+              <h3>Diesel Delights + Bangkok Garden Sauces</h3>
+              <div class="deal-type">Vietnamese Soul Food &bull; 30-Year Thai Sauce Heritage</div>
+            </div>
+          </div>
+          <div class="deal-body">
+            <p class="deal-desc">Two culturally rooted food brands. <strong>Diesel Delights:</strong> 7 signature $10 plates, 5 proprietary sauces, built from 15+ years of feeding firefighter crews. <strong>Bangkok Garden Sauces:</strong> 10 bottled sauces from a 30-year Sacramento Thai restaurant with 1,220+ Yelp photos and 4-star rating. Both CPG-ready for retail and DTC. $8.99 per bottle, curated kits at $24.99.</p>
+            <div class="deal-stats">
+              <div class="ds"><span class="ds-v">15</span><span class="ds-l">Proprietary Sauces</span></div>
+              <div class="ds"><span class="ds-v">30yr</span><span class="ds-l">Restaurant Heritage</span></div>
+              <div class="ds"><span class="ds-v">$8.99</span><span class="ds-l">Per Bottle</span></div>
+              <div class="ds"><span class="ds-v">2</span><span class="ds-l">Brands</span></div>
+            </div>
+            <div class="deal-impact">Creates local restaurant and manufacturing jobs. Sources from local suppliers. Culturally authentic food brands rooted in Sacramento families.</div>
+            <div class="deal-links">
+              <a href="https://dieseldelights.com/" target="_blank" class="btn btn-gold btn-sm">Diesel Delights</a>
+              <a href="https://invinciblelude.github.io/thaibankokgarden/" target="_blank" class="btn btn-line btn-sm">Bangkok Garden</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec process-bg" id="process">
+    <div class="w">
+      <div class="sec-tag">Process</div>
+      <h2>Simple. Transparent. Investor-first.</h2>
+      <p class="sec-p">Four steps from interest to deployment. Full transparency at every stage.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">01</div>
+          <h3>Apply</h3>
+          <p>Submit the form below. We verify fit and qualification. Takes two minutes. Zero obligation.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">02</div>
+          <h3>Review Deals</h3>
+          <p>Receive investment memos and data room access for the deals that match your interests.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">03</div>
+          <h3>Fund</h3>
+          <p>Choose your deal. Sign docs. Wire to escrow. Clean structure, clear terms, no surprises.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">04</div>
+          <h3>Collect</h3>
+          <p>Quarterly reports and distributions. Full transparency on milestones, progress, and exits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- OPERATOR -->
+  <section class="sec" id="operator">
+    <div class="w">
+      <div class="sec-tag">The Operator</div>
+      <h2>The builder behind<br>the entire portfolio</h2>
+      <div class="op-row">
+        <div class="op-bio">
+          <p><strong>Vince Dang</strong> doesn't wait for permission to build. He builds first, proves the concept, and then invites the right partners to scale. Every link on this page is proof of that approach.</p>
+          <p><strong>17 years as a Cal Fire helitack firefighter</strong> — helicopter-based air operations, 40-person crew coordination, zero-fail emergency response. That career forged an operating discipline that shows up in every venture: no excuses, no downtime, deliver or people get hurt.</p>
+          <p>Simultaneously built <strong>$3.5M+ in ground-up development</strong>: raw agricultural land navigated through CEQA, Fish &amp; Wildlife, state/county permits to fully licensed operations. Three farms on an 18-acre compound. Wells drilled. 400-amp power. Multiple warehouses. Eight successful seasons.</p>
+          <p>When the traditional path hit a wall, he <strong>taught himself AI-assisted development and shipped 15+ live products across 6 industries in 18 months.</strong> Every website. Every product. Every business model. Self-funded and self-built. That velocity created a portfolio of ventures with real market potential — now positioned for the capital infusion that turns each one into a category leader.</p>
+          <p>Currently owns <strong>3 properties</strong>, runs <strong>3 active businesses</strong>, manages construction crews, and actively hires in Sacramento — while building AI-powered ventures that each address billion-dollar markets. The businesses are real. The network is deep. The ambition is backed by a track record of getting things done.</p>
+          <div class="op-stats">
+            <div class="os"><div class="os-n">17yr</div><div class="os-l">Cal Fire Helitack</div></div>
+            <div class="os"><div class="os-n">$3.5M+</div><div class="os-l">Ground-Up Builds</div></div>
+            <div class="os"><div class="os-n">15+</div><div class="os-l">Live Ventures</div></div>
+            <div class="os"><div class="os-n">6</div><div class="os-l">Industries</div></div>
+            <div class="os"><div class="os-n">3</div><div class="os-l">Properties Owned</div></div>
+            <div class="os"><div class="os-n">2M+</div><div class="os-l">Content Views</div></div>
+          </div>
+        </div>
+        <div>
+          <!-- CAREER TIMELINE -->
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div><div class="tl-line"></div>
+              <div class="tl-content">
+                <div class="tl-year">2007 — 2019</div>
+                <h4>Cal Fire — Helitack Firefighter</h4>
+                <p>17-year career. Helicopter air ops, multi-crew coordination, zero-fail emergencies. Brigade Commander in JROTC. Fire Prevention &amp; Safety degree from American River College.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div><div class="tl-line"></div>
+              <div class="tl-content">
+                <div class="tl-year">2016 — Present</div>
+                <h4>CEO &amp; Property Manager — Nesting Home LLC</h4>
+                <p>3 properties owned and managed. 3 cannabis farms built from raw land in Mendocino County. $3.5M in infrastructure. 8 successful seasons. Full CEQA, Fish &amp; Wildlife, state/county compliance.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div><div class="tl-line"></div>
+              <div class="tl-content">
+                <div class="tl-year">2024 — Present</div>
+                <h4>Construction Operations</h4>
+                <p>HomeRiserFix (GC services), TheNetwork20 (talent marketplace), SilverCrowdCraft (PM platform), Comet AI (bid automation). Actively hiring crews and building in Sacramento.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div><div class="tl-line"></div>
+              <div class="tl-content">
+                <div class="tl-year">2025 — Present</div>
+                <h4>AI-Powered Venture Building</h4>
+                <p>Shipped 15+ products across fintech, health tech, food, education, and B2B SaaS. All live. ZAP, PeptideEats, CRM Data Intelligence, iCode Sacramento, Bangkok Garden Sauces, Diesel Delights.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <div class="tl-year">2025 — 2028</div>
+                <h4>Vista Lake Estates — Flagship Development</h4>
+                <p>15 entitled luxury lots in Granite Bay. $35-45M sell-out potential. Partnership with Bianchi-Tillett Developers. Sotheby's &amp; Engel &amp; Völkers distribution. Full investor data room built.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cred-grid" style="margin-top:24px">
+            <div class="cred-item"><span class="cred-label">Builder</span><span class="cred-text">Top 5% CA contractor via Bianchi-Tillett (BuildZoom 108). 100+ luxury homes built.</span></div>
+            <div class="cred-item"><span class="cred-label">Brokerage</span><span class="cred-text">Sotheby's, Engel &amp; Völkers, Nick Sadek Luxury. JamesEdition distribution.</span></div>
+            <div class="cred-item"><span class="cred-label">Capital</span><span class="cred-text">Brookwood Estates crowdfunding on ChainRaise — 16-18% ROI. Proven raise template.</span></div>
+            <div class="cred-item"><span class="cred-label">Technology</span><span class="cred-text">Python, TypeScript, React Native, Supabase, AI full-stack. Builds his own tools.</span></div>
+            <div class="cred-item"><span class="cred-label">Content</span><span class="cred-text">2M+ views, 200K+ likes on a single reel. Understands viral distribution.</span></div>
+            <div class="cred-item"><span class="cred-label">Network</span><span class="cred-text">200+ LinkedIn connections. Active in Sacramento construction, real estate, and tech.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- THE NETWORK -->
+  <section class="sec" id="network" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="w">
+      <div class="sec-tag">The Network</div>
+      <h2>Partnerships and infrastructure already in place</h2>
+      <p class="sec-p">None of these ventures exist in a vacuum. Each one is supported by established relationships, proven platforms, and industry partnerships — creating an ecosystem with compounding advantages.</p>
+      <div class="net-grid">
+        <div class="net-card">
+          <div class="net-tag">Development Partner</div>
+          <h3>Bianchi-Tillett Developers</h3>
+          <p>Full-service design-build firm. 20+ years. Top 5% CA contractors (BuildZoom 108). Brookwood Estates, Catta Verdera, Barton Ranch. The builder behind Vista Lake's vertical strategy.</p>
+        </div>
+        <div class="net-card">
+          <div class="net-tag">Luxury Distribution</div>
+          <h3>Sotheby's &amp; Engel &amp; Völkers</h3>
+          <p>Nick Sadek Luxury Estates. 22K+ global Sotheby's associates. Engel &amp; Völkers worldwide reach. JamesEdition (550K HNW monthly visitors). Homes positioned next to Monaco penthouses.</p>
+        </div>
+        <div class="net-card">
+          <div class="net-tag">Capital Markets</div>
+          <h3>ChainRaise Crowdfunding</h3>
+          <p>Brookwood Estates already live on ChainRaise at 16-18% ROI. Proven capital raise template ready to replicate across future projects.</p>
+        </div>
+        <div class="net-card">
+          <div class="net-tag">Payments Infrastructure</div>
+          <h3>NowPayments, Circle, BitPay</h3>
+          <p>ZAP integrates with established payment platforms — NowPayments gateway, Circle USDC (NYSE: CRCL), BitPay, and more. Regulated, audited infrastructure. We handle setup, onboarding, and training for merchants.</p>
+        </div>
+        <div class="net-card">
+          <div class="net-tag">Education Partner</div>
+          <h3>iCode National Franchise</h3>
+          <p>#1 fastest-growing education company (Financial Times). 80+ campuses. 150K+ students taught. STEM.org certified. Sacramento territory available.</p>
+        </div>
+        <div class="net-card">
+          <div class="net-tag">Food &amp; Restaurant</div>
+          <h3>Bangkok Garden Thai Cuisine</h3>
+          <p>30-year Sacramento restaurant. 1,220+ Yelp photos. Halal certified. Mama Chan's recipes — the same ones served daily for three decades — now bottled for retail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- INVESTOR ACCESS FORM -->
+  <section class="sec form-sec" id="access">
+    <div class="w">
+      <div class="form-row">
+        <div class="form-info">
+          <div class="sec-tag">Get Started</div>
+          <h2>Request access to<br>current deal memos</h2>
+          <p>Submit the form and receive investment materials within 24 hours. No commitment. No pressure. Just the deals, the numbers, and the data rooms — for ventures that were built before capital was ever requested.</p>
+          <ul>
+            <li>Full investment memos with financial models</li>
+            <li>Vista Lake Estates data room access</li>
+            <li>Live demos of all AI venture products</li>
+            <li>Direct line to the operator — no middleman</li>
+            <li>Quarterly portfolio updates</li>
+            <li>Access to full portfolio of 15+ live sites</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <form id="investForm" action="https://formspree.io/f/mqeyqpob" method="POST">
+            <div class="fg">
+              <label>Full Name</label>
+              <input type="text" name="name" required placeholder="Your name">
+            </div>
+            <div class="fg">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="you@example.com">
+            </div>
+            <div class="fg">
+              <label>Phone</label>
+              <input type="tel" name="phone" placeholder="(555) 000-0000">
+            </div>
+            <div class="fg">
+              <label>Investor Type</label>
+              <select name="investor_type" required>
+                <option value="" disabled selected>Select</option>
+                <option value="Accredited Individual">Accredited Individual</option>
+                <option value="Family Office">Family Office</option>
+                <option value="Institutional">Institutional</option>
+                <option value="Strategic Partner">Strategic Partner</option>
+                <option value="Exploring — Not Yet Verified">Exploring — Not Yet Verified</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Typical Check Size</label>
+              <select name="check_size">
+                <option value="" disabled selected>Select range</option>
+                <option value="$10K – $50K">$10K – $50K</option>
+                <option value="$50K – $100K">$50K – $100K</option>
+                <option value="$100K – $250K">$100K – $250K</option>
+                <option value="$250K – $1M">$250K – $1M</option>
+                <option value="$1M+">$1M+</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Which Deals Interest You?</label>
+              <select name="deal_interest">
+                <option value="" disabled selected>Select</option>
+                <option value="Vista Lake Estates (Real Estate)">Vista Lake Estates (Real Estate)</option>
+                <option value="ZAP Payments (Fintech)">ZAP Payments (Fintech)</option>
+                <option value="iCode Sacramento (Education)">iCode Sacramento (Education)</option>
+                <option value="CRM Data Intelligence (B2B)">CRM Data Intelligence (B2B)</option>
+                <option value="PeptideEats (Health Tech)">PeptideEats (Health Tech)</option>
+                <option value="Construction Ecosystem">Construction Ecosystem</option>
+                <option value="Food & Beverage (Diesel + Bangkok)">Food &amp; Beverage (Diesel + Bangkok)</option>
+                <option value="Full Portfolio">Full Portfolio</option>
+                <option value="Still Exploring">Still Exploring</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Anything You'd Like to Share?</label>
+              <textarea name="message" placeholder="Tell me about your investment interests, timeline, or questions..."></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New Investor Inquiry — Vince Dang Capital">
+            <button type="submit" class="btn btn-gold btn-full">Request Deal Access</button>
+            <p class="form-note">Response within 24 hours. Your information is kept strictly confidential.</p>
+          </form>
+        </div>
+      </div>
+      <p class="disclaimer">This page is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities. All investments involve risk, including possible loss of principal. Past performance and projected returns are not guarantees of future results. Only accredited investors as defined by SEC Rule 501 may participate in certain offerings. Consult your own legal, tax, and financial advisors before investing.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <p>&copy; 2026 Vince Dang Capital &bull; Sacramento, CA &bull; <a href="mailto:vincedang@nestinghomesolution.com">vincedang@nestinghomesolution.com</a> &bull; <a href="tel:+19164082256">(916) 408-2256</a> &bull; <a href="https://www.linkedin.com/in/phuc-dang-6179b9346" target="_blank">LinkedIn</a> &bull; <a href="https://github.com/Invinciblelude" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-68,behavior:'smooth'})})});
+  </script>
+</body>
+</html>
