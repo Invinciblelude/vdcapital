@@ -288,6 +288,23 @@
     .cs-m{font-size:.625rem;color:var(--dim)}
     .cs-m strong{color:var(--gold2);font-family:var(--mono);font-size:.6875rem}
 
+    /* AUDIO PLAYER */
+    .audio-btn{
+      position:fixed;bottom:24px;right:24px;z-index:99;
+      width:48px;height:48px;border-radius:50%;border:1px solid var(--border2);
+      background:rgba(15,18,24,0.95);color:var(--gold);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;font-size:1.1rem;
+      box-shadow:0 4px 20px rgba(0,0,0,0.4);
+    }
+    .audio-btn:hover{background:var(--gold);color:#000;border-color:var(--gold)}
+    .audio-btn.playing{background:var(--gold);color:#000;border-color:var(--gold)}
+    .audio-label{
+      position:fixed;bottom:30px;right:80px;z-index:99;
+      font-size:.625rem;color:var(--dim);letter-spacing:.04em;
+      pointer-events:none;opacity:0.7;
+    }
+
     footer{border-top:1px solid var(--border);padding:28px 0;text-align:center}
     footer p{font-size:.625rem;color:var(--dim);line-height:1.6}
     footer a{color:var(--dim)}
@@ -1153,8 +1170,33 @@
     </div>
   </footer>
 
+  <!-- AUDIO PLAYER -->
+  <audio id="bgTrack" src="sample.mp3" preload="none"></audio>
+  <span class="audio-label">Personal Network — MD</span>
+  <button class="audio-btn" id="audioBtn" aria-label="Play music">&#9654;</button>
+
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-68,behavior:'smooth'})})});
+
+    (function(){
+      const btn=document.getElementById('audioBtn');
+      const track=document.getElementById('bgTrack');
+      btn.addEventListener('click',function(){
+        if(track.paused){
+          track.play();
+          btn.innerHTML='&#10074;&#10074;';
+          btn.classList.add('playing');
+        }else{
+          track.pause();
+          btn.innerHTML='&#9654;';
+          btn.classList.remove('playing');
+        }
+      });
+      track.addEventListener('ended',function(){
+        btn.innerHTML='&#9654;';
+        btn.classList.remove('playing');
+      });
+    })();
   </script>
 </body>
 </html>
