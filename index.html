@@ -289,21 +289,43 @@
     .cs-m strong{color:var(--gold2);font-family:var(--mono);font-size:.6875rem}
 
     /* AUDIO PLAYER */
-    .audio-btn{
+    .audio-wrap{
       position:fixed;bottom:24px;right:24px;z-index:99;
+      display:flex;align-items:center;gap:8px;flex-direction:row-reverse;
+    }
+    .audio-btn{
       width:48px;height:48px;border-radius:50%;border:1px solid var(--border2);
       background:rgba(15,18,24,0.95);color:var(--gold);
       display:flex;align-items:center;justify-content:center;
-      cursor:pointer;font-size:1.1rem;
+      cursor:pointer;font-size:1.1rem;flex-shrink:0;
       box-shadow:0 4px 20px rgba(0,0,0,0.4);
     }
     .audio-btn:hover{background:var(--gold);color:#000;border-color:var(--gold)}
     .audio-btn.playing{background:var(--gold);color:#000;border-color:var(--gold)}
-    .audio-label{
-      position:fixed;bottom:30px;right:80px;z-index:99;
-      font-size:.625rem;color:var(--dim);letter-spacing:.04em;
-      pointer-events:none;opacity:0.7;
+    .audio-meta{
+      display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+      opacity:0;pointer-events:none;transform:translateX(8px);
+      transition:opacity .25s,transform .25s;
     }
+    .audio-wrap:hover .audio-meta,.audio-wrap.expanded .audio-meta{
+      opacity:1;pointer-events:auto;transform:translateX(0);
+    }
+    .audio-title{
+      font-size:.5625rem;color:var(--muted);letter-spacing:.04em;white-space:nowrap;
+      background:rgba(15,18,24,0.95);padding:4px 10px;border-radius:4px;
+      border:1px solid var(--border);
+    }
+    .audio-toggle{
+      display:flex;border-radius:4px;overflow:hidden;border:1px solid var(--border);
+      background:rgba(15,18,24,0.95);
+    }
+    .audio-toggle button{
+      font-family:var(--sans);font-size:.5rem;font-weight:700;text-transform:uppercase;
+      letter-spacing:.06em;padding:4px 10px;border:none;cursor:pointer;
+      background:transparent;color:var(--dim);white-space:nowrap;
+    }
+    .audio-toggle button.active{background:var(--gold);color:#000}
+    .audio-toggle button:hover:not(.active){color:var(--text)}
 
     footer{border-top:1px solid var(--border);padding:28px 0;text-align:center}
     footer p{font-size:.625rem;color:var(--dim);line-height:1.6}
@@ -1172,8 +1194,16 @@
 
   <!-- AUDIO PLAYER -->
   <audio id="bgTrack" src="sample.mp3" preload="none"></audio>
-  <span class="audio-label">Personal Network — MD</span>
-  <button class="audio-btn" id="audioBtn" aria-label="Play music">&#9654;</button>
+  <div class="audio-wrap" id="audioWrap">
+    <button class="audio-btn" id="audioBtn" aria-label="Play music">&#9654;</button>
+    <div class="audio-meta">
+      <span class="audio-title">Run It Up — Vince Dang</span>
+      <div class="audio-toggle">
+        <button class="active" id="toggleVerse" data-src="sample.mp3">Verse</button>
+        <button id="toggleFull" data-src="full-track.mp3">Full Song</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-68,behavior:'smooth'})})});
@@ -1181,17 +1211,44 @@
     (function(){
       const btn=document.getElementById('audioBtn');
       const track=document.getElementById('bgTrack');
+      const wrap=document.getElementById('audioWrap');
+      const verseBtn=document.getElementById('toggleVerse');
+      const fullBtn=document.getElementById('toggleFull');
+
       btn.addEventListener('click',function(){
         if(track.paused){
           track.play();
           btn.innerHTML='&#10074;&#10074;';
           btn.classList.add('playing');
+          wrap.classList.add('expanded');
         }else{
           track.pause();
           btn.innerHTML='&#9654;';
           btn.classList.remove('playing');
         }
       });
+
+      function switchTrack(newSrc,activeBtn,otherBtn){
+        const wasPlaying=!track.paused;
+        track.pause();
+        track.src=newSrc;
+        track.load();
+        activeBtn.classList.add('active');
+        otherBtn.classList.remove('active');
+        if(wasPlaying){
+          track.play();
+          btn.innerHTML='&#10074;&#10074;';
+          btn.classList.add('playing');
+        }
+      }
+
+      verseBtn.addEventListener('click',function(){
+        switchTrack(this.dataset.src,verseBtn,fullBtn);
+      });
+      fullBtn.addEventListener('click',function(){
+        switchTrack(this.dataset.src,fullBtn,verseBtn);
+      });
+
       track.addEventListener('ended',function(){
         btn.innerHTML='&#9654;';
         btn.classList.remove('playing');
