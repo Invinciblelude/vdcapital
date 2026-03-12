@@ -24,10 +24,10 @@
       --mono:'JetBrains Mono',monospace;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+    html{-webkit-overflow-scrolling:touch}
     body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
     .w{max-width:1180px;margin:0 auto;padding:0 24px}
-    a{color:var(--gold2);text-decoration:none;transition:.2s}
+    a{color:var(--gold2);text-decoration:none}
     a:hover{color:#fff}
     ::selection{background:var(--gold);color:#000}
     img{max-width:100%;display:block}
@@ -111,7 +111,7 @@
     .sl-fb{color:#fb923c} .sl-fb::before{background:#fb923c}
     .sl-ed{color:#a78bfa} .sl-ed::before{background:#a78bfa}
     .port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-    .pcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;transition:.3s;display:flex;flex-direction:column;gap:6px}
+    .pcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
     .pcard:hover{border-color:var(--border2);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
     .pcard-name{font-size:.8125rem;font-weight:700;display:flex;align-items:center;gap:6px}
     .pcard-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
@@ -133,7 +133,7 @@
     }
     .thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden}
     @media(max-width:768px){.thesis-grid{grid-template-columns:1fr}}
-    .th-card{background:var(--bg2);padding:32px;transition:background .3s}
+    .th-card{background:var(--bg2);padding:32px}
     .th-card:hover{background:var(--bg3)}
     .th-icon{font-size:1.5rem;margin-bottom:14px;display:block}
     .th-card h3{font-size:.9375rem;font-weight:700;margin-bottom:8px}
@@ -142,7 +142,7 @@
     /* DEAL CARDS */
     .deals-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     @media(max-width:800px){.deals-grid{grid-template-columns:1fr}}
-    .deal{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:.3s}
+    .deal{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
     .deal:hover{border-color:var(--border2);box-shadow:0 10px 32px rgba(0,0,0,0.3)}
     .deal.full{grid-column:1/-1}
     .deal-img{height:200px;position:relative;overflow:hidden}
@@ -203,7 +203,7 @@
     /* NETWORK */
     .net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media(max-width:768px){.net-grid{grid-template-columns:1fr}}
-    .net-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:.3s}
+    .net-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px}
     .net-card:hover{border-color:var(--border2)}
     .net-card h3{font-size:.875rem;font-weight:700;margin-bottom:6px}
     .net-card p{font-size:.75rem;color:var(--muted);line-height:1.6}
@@ -279,7 +279,7 @@
     /* CASE STUDIES */
     .cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media(max-width:768px){.cs-grid{grid-template-columns:1fr}}
-    .cs-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:.3s}
+    .cs-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px}
     .cs-card:hover{border-color:var(--border2)}
     .cs-tag{font-size:.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
     .cs-card h3{font-size:.875rem;font-weight:700;margin-bottom:6px}
